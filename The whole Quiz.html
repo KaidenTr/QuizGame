@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .quiz-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    .question {
+        margin-bottom: 10px;
+    }
+    .option {
+        display: block;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+
+    <form id="quiz-form">
+        <h1>Marvel Superhero Quiz</h1>
+
+        <!-- Text Input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+
+        <!-- Checkbox -->
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the terms and conditions</label><br>
+
+    </form>
+
+    <div class="quiz-container">
+        <h1>Do You know Marvel</h1>
+        <div class="question">
+            <p id="questionText">Question here</p>
+        </div>
+        <div id="options">
+            Options here
+        </div>
+        <button onclick="Answer()">Submit Answer</button>
+    </div>
+
+
+    <script src="trivila.js"></script>
+    <script src="timer.js"></script>
+    <script src="formActions.js"></script>
+</body>
+</html>
