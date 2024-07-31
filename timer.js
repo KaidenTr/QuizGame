@@ -4,6 +4,7 @@ var timer;
 function startQuiz() {
     // Here you can add the code to start the quiz, such as showing the first question, etc.
     console.log('Quiz started');
+    window.location.href = 'Quiz.html';
     startTimer();
 }
 
