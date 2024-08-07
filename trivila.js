@@ -1,3 +1,10 @@
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
     const Questions = [
         {
             question: "What does S.H.I.E.L.D. stand for?",
@@ -6,7 +13,7 @@
         },
         {
             question: "Sharon Carter is whose great-niece?",
-            options: ["Pepper", "Peggy", "Diana",""],
+            options: ["Pepper", "Peggy", "Diana"],
             answer: "Peggy"
         },
         {
@@ -101,54 +108,141 @@
         },
         //Add more questions here make sure it looks like the others
     ];
-function initQuiz() {
 
-    const randomIndex = Math.floor(Math.random() * Questions.length);
-    const currentQuestion = Questions[randomIndex];
+    function initQuiz() {
+        if (currentQuestionIndex >= totalQuestions) {
+            finishQuiz();
+            return;
+        }
+    
+        // Clear the GIF container
+        const gifContainer = document.getElementById('gif-container');
+        gifContainer.innerHTML = '';
+    
+        const currentQuestion = Questions[currentQuestionIndex];
+    
+        document.getElementById('questionText').textContent = currentQuestion.question;
+    
+        const optionsContainer = document.getElementById('options');
+        optionsContainer.innerHTML = '';
+    
+        currentQuestion.options.forEach(option => {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('option');
+            optionElement.textContent = option;
+    
+            optionElement.addEventListener('click', function() {
+                document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                optionElement.classList.add('selected');
+            });
+    
+            optionsContainer.appendChild(optionElement);
+        });
+    
+        optionsContainer.dataset.answer = currentQuestion.answer;
+        document.getElementById('progress').textContent = `Question ${currentQuestionIndex + 1}/${totalQuestions}`;
+        startTimer();
 
-    document.getElementById('questionText').textContent = currentQuestion.question;
+        document.getElementById('submit-answer').style.display = 'block';
+    }
 
-    const optionsContainer = document.getElementById('options');
-    optionsContainer.innerHTML = '';
 
-    currentQuestion.options.forEach(option => {
-        const optionElement = document.createElement('div');
-        optionElement.classList.add('option');
-        optionElement.textContent = option;
-        optionsContainer.appendChild(optionElement);
-    });
 
-    optionsContainer.dataset.answer = currentQuestion.answer;
+let score = 0;
+let currentQuestionIndex = 0;
+const totalQuestions = 20;
+
+shuffle(Questions);
+
+
+const correctGifs = [
+    'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzd0MW9ta2MyNjE4aGhpaXlhNHloN3p4azVsNHBzbHZ5NHp0bWJ0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A7Gpt39kH5sAg/200.gif',
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXcyajNrZGRvY2llNjI4ZHF6N3dnZDQwMjdvYXhnOGtjMnZvcHcyeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SX6AoXlEp2ri2IM9Fr/giphy.gif',
+    'https://media1.tenor.com/m/gqQaC_QM5i4AAAAC/captain-america-america.gif'
+];
+
+const incorrectGifs = [
+    'https://media1.tenor.com/m/NTm1flBIAVMAAAAC/mcu-loki.gif',
+    'https://media1.tenor.com/m/N4CS9Sjw_1IAAAAd/sad-spiderman.gif',
+    'https://media1.tenor.com/m/yU4shJCkdKsAAAAC/thanos-sorry.gif'
+];
+
+function getRandomGif(gifs) {
+    const randomIndex = Math.floor(Math.random() * gifs.length);
+    return gifs[randomIndex];
 }
+
 
 function Answer() {
     const selectedOption = document.querySelector('.option.selected');
     if (!selectedOption) {
-        alert('Please select an answer!');
+        document.getElementById('result').textContent = 'Please select an answer!';
+        document.getElementById('result').className = '';  // Remove any existing classes
+        document.getElementById('result').style.display = 'block';
         return;
     }
 
     const selectedAnswer = selectedOption.textContent;
     const correctAnswer = document.getElementById('options').dataset.answer;
 
+    const correctSound = document.getElementById('correct-sound');
+    const incorrectSound = document.getElementById('incorrect-sound');
+
+    const gifContainer = document.getElementById('gif-container');
+    gifContainer.innerHTML = '';  // Clear any existing GIF
+
+        // Hide the submit button after clicking
+    document.getElementById('submit-answer').style.display = 'none';
+
     if (selectedAnswer === correctAnswer) {
-        alert('Correct!');
-        initQuiz();
+        score++;
+
+        document.getElementById('result').textContent = 'Correct!';
+        document.getElementById('result').className = 'correct';  // Add the correct class
+        document.body.classList.add('correct-effect');  // Add the correct effect
+        correctSound.play();  // Play correct sound
+
+        const gif = document.createElement('img');
+        gif.src = getRandomGif(correctGifs);
+        gifContainer.appendChild(gif);
+
+
     } else {
-        alert('Incorrect. The correct answer is: ' + correctAnswer);
-        initQuiz();
+        document.getElementById('result').textContent = 'Incorrect. The correct answer is: ' + correctAnswer;
+        document.getElementById('result').className = 'incorrect';  // Add the incorrect class
+        document.body.classList.add('incorrect-effect');  // Add the incorrect effect
+        incorrectSound.play();  // Play incorrect sound
+
+        const gif = document.createElement('img');
+        gif.src = getRandomGif(incorrectGifs);
+        gifContainer.appendChild(gif);
+
     }
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('next-button').style.display = 'block';
+    document.getElementById('score').textContent = 'Score: ' + score;  // Update the score display
+    // Hide the submit button after clicking
+    document.getElementById('submit-answer').style.display = 'none';
+
+    // Remove the effect class after the animation ends
+    setTimeout(() => {
+        document.body.classList.remove('correct-effect', 'incorrect-effect');
+    }, 500);  // Match the duration of the animation
 }
 
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.classList.contains('option')) {
+function nextQuestion() {
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('next-button').style.display = 'none';
+    currentQuestionIndex++;
+    initQuiz();
+}
 
-        const options = document.querySelectorAll('.option');
-        options.forEach(option => option.classList.remove('selected'));
 
-        e.target.classList.add('selected');
-    }
-});
+function finishQuiz() {
+    clearInterval(timerInterval);  // Stop the timer
+    window.location.href = `result.html?score=${score}&time=${elapsedTime}`;
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     initQuiz();

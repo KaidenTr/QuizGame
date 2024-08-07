@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    
+
+    <div class="quiz-container">
+        <h1>Do You Know Marvel</h1>
+        <div class="question">
+            <p id="questionText">Question here</p>
+            <div class="tip"></div>
+        </div>
+        <div id="options">
+            Options here
+        </div>
+        <div id="button-container">
+            <button id="submit-answer" onclick="Answer()">Submit Answer</button>
+        </div>
+        <div id="result"></div>
+        <div id="gif-container"></div>
+        <button id="next-button" onclick="nextQuestion()" style="display: none;">Next Question</button>
+        <div id="score">Score: 0</div>
+        <div id="progress">Question 1/20</div>
+        <div id="timer">Elapsed Time: 0</div>
+        <button id="end-quiz" onclick="finishQuiz()">End Quiz</button>
+    </div>
+
+
+    <script src="trivila.js"></script>
+    <script src="timer.js"></script>
+    <script src="formActions.js"></script>
+
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="incorrect-sound" src="incorrect.mp3"></audio>
+
+
+</body>
+</html>
