@@ -15,13 +15,13 @@ body {
 
 h1 {
     font-size: 10em;  /* Increased font size */
-    text-shadow: 3px 3px #ff0000;
+    text-shadow: 0.03em 0.03em #ff0000;  /* 3px to em */
 }
 
 .hero {
     position: relative;
-    width: 300px;  /* Increased width */
-    height: 500px;  /* Increased height */
+    width: 18.75em;  /* 300px to em */
+    height: 31.25em;  /* 500px to em */
     background: url('Captain America.png') no-repeat center center;
     background-size: contain;
     margin: 0 auto;
@@ -29,39 +29,39 @@ h1 {
 
 .speech-bubble {
     position: absolute;
-    top: -50px;  /* Adjusted position */
+    top: -3.125em;  /* -50px to em */
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;  /* Increased width */
-    padding: 20px;  /* Increased padding */
+    width: 25em;  /* 400px to em */
+    padding: 1.25em;  /* 20px to em */
     background: #fff;
-    border: 3px solid #000;  /* Increased border width */
-    border-radius: 15px;  /* Increased border radius */
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    border: 0.1875em solid #000;  /* 3px to em */
+    border-radius: 0.9375em;  /* 15px to em */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
 }
 
 .speech-bubble:after {
     content: '';
     position: absolute;
-    bottom: -30px;  /* Adjusted position */
+    bottom: -1.875em;  /* -30px to em */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border: 15px solid transparent;  /* Increased border size */
+    border: 0.9375em solid transparent;  /* 15px to em */
     border-top-color: #fff;
 }
 
 .start-button {
-    margin-top: 30px;  /* Increased margin */
-    padding: 15px 30px;  /* Increased padding */
+    margin-top: 1.875em;  /* 30px to em */
+    padding: 0.9375em 1.875em;  /* 15px 30px to em */
     font-size: 2em;  /* Increased font size */
     background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 15px;  /* Increased border radius */
+    border-radius: 0.9375em;  /* 15px to em */
     cursor: pointer;
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
 }
 
 .start-button:hover {
@@ -74,8 +74,8 @@ h1 {
     left: 0;
     width: 100%;
     background-color: #f4f3ee;
-    padding: 30px;  /* Increased padding */
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);  /* Increased shadow */
+    padding: 1.875em;  /* 30px to em */
+    box-shadow: 0.1875em 0.1875em 0.4375em rgba(0, 0, 0, 0.1);  /* 3px 7px to em */
     z-index: auto;  /* Reset z-index */
 }
 
@@ -85,20 +85,20 @@ h1 {
 }
 
 .quiz-container {
-    border: 3px solid #000000;  /* Increased border width */
-    border-radius: 20px;  /* Increased border radius */
-    padding: 30px;  /* Increased padding */
-    margin: 30px;  /* Increased margin */
+    border: 0.1875em solid #000000;  /* 3px to em */
+    border-radius: 1.25em;  /* 20px to em */
+    padding: 1.875em;  /* 30px to em */
+    margin: 1.875em;  /* 30px to em */
     background-image: radial-gradient(circle, #ffffff, #d6d5d2);
 }
 
 .question {
-    border: 3px solid #000000;  /* Increased border width */
-    border-radius: 20px;  /* Increased border radius */
-    padding: 30px;  /* Increased padding */
-    margin: 30px;  /* Increased margin */
+    border: 0.1875em solid #000000;  /* 3px to em */
+    border-radius: 1.25em;  /* 20px to em */
+    padding: 1.875em;  /* 30px to em */
+    margin: 1.875em;  /* 30px to em */
     background-color: #ffffff;
-    box-shadow: 15px 15px 10px grey;  /* Increased shadow */
+    box-shadow: 0.9375em 0.9375em 0.625em grey;  /* 15px 10px to em */
     position: relative;
     font-size: 2em;  /* Increased font size for question text */
 }
@@ -107,38 +107,39 @@ h1 {
     width: 0;
     height: 0;
     position: absolute;
-    right: 90px;  /* Adjusted position */
-    bottom: -30px;  /* Adjusted position */
-    border: solid 15px;  /* Increased border size */
+    right: 5.625em;  /* 90px to em */
+    bottom: -1.875em;  /* -30px to em */
+    border: solid 0.9375em;  /* 15px to em */
     border-color: #fff transparent transparent transparent;
 }
 
 #options {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;  /* Increased gap */
-    margin-left: 200px;  /* Offset to the right */
+    gap: 1.875em;  /* 30px to em */
+    margin-left: 12.5em;  /* 200px to em */
 }
 
 .option {
-    border: 3px solid #000000;  /* Increased border width */
+    border: 0.1875em solid #000000;  /* 3px to em */
     border-radius: 50%;
-    padding: 20px;  /* Increased padding */
+    padding: 1.25em;  /* 20px to em */
     background-color: #ffffff;
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     cursor: pointer;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;  /* Increased height */
-    width: 150px;  /* Increased width */
+    height: 9.375em;  /* 150px to em */
+    width: 9.375em;  /* 150px to em */
     font-size: 1.5em;  /* Increased font size for answer options */
 }
 
 .option:hover {
     background-color: #e0e0e0;  /* Darker background color on hover */
-    box-shadow: 7px 7px 10px grey;  /* Slightly increased shadow on hover */
+    box-shadow: 0.4375em 0.4375em 0.625em grey;  /* 7px 10px to em */
+    transform: scale(1.10);
 }
 
 .option.selected {
@@ -146,44 +147,44 @@ h1 {
 }
 
 #timer {
-    margin-top: 30px;  /* Increased margin */
+    margin-top: 1.875em;  /* 30px to em */
     font-size: 2em;  /* Increased font size */
     text-align: center;
 }
 
 #result.correct {
-    margin-top: 30px;  /* Increased margin */
-    padding: 20px;  /* Increased padding */
-    border: 3px solid #000;  /* Increased border width */
-    border-radius: 15px;  /* Increased border radius */
+    margin-top: 1.875em;  /* 30px to em */
+    padding: 1.25em;  /* 20px to em */
+    border: 0.1875em solid #000;  /* 3px to em */
+    border-radius: 0.9375em;  /* 15px to em */
     background-color: #00ff15;
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     text-align: center;
     display: none;
 }
 
 #result.incorrect {
-    margin-top: 30px;  /* Increased margin */
-    padding: 20px;  /* Increased padding */
-    border: 3px solid #000;  /* Increased border width */
-    border-radius: 15px;  /* Increased border radius */
+    margin-top: 1.875em;  /* 30px to em */
+    padding: 1.25em;  /* 20px to em */
+    border: 0.1875em solid #000;  /* 3px to em */
+    border-radius: 0.9375em;  /* 15px to em */
     background-color: #ff0000;
     color: #fff;
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     text-align: center;
     display: none;
 }
 
 #next-button {
-    margin-top: 30px;  /* Increased margin */
-    padding: 15px 30px;  /* Increased padding */
+    margin-top: 1.875em;  /* 30px to em */
+    padding: 0.9375em 1.875em;  /* 15px 30px to em */
     font-size: 2em;  /* Increased font size */
     background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 15px;  /* Increased border radius */
+    border-radius: 0.9375em;  /* 15px to em */
     cursor: pointer;
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     display: none;  /* Initially hidden */
 }
 
@@ -192,13 +193,13 @@ h1 {
 }
 
 #progress {
-    margin-bottom: 30px;  /* Increased margin */
+    margin-bottom: 1.875em;  /* 30px to em */
     font-size: 1.5em;  /* Increased font size */
     text-align: center;
 }
 
 #score {
-    margin-top: 20px;  /* Increased margin */
+    margin-top: 1.25em;  /* 20px to em */
     font-size: 2em;  /* Increased font size */
     text-align: center;
 }
@@ -218,7 +219,7 @@ h1 {
 }
 
 .incorrect-effect {
-    animation: incorrect-answer 0.5s ease-in-out;
+    animation: incorrect-answer 0.5s ease-in-out
 }
 
 #confetti {
@@ -236,18 +237,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;  /* Adjust as needed */
+    margin-top: 1.25em;  /* 20px to em */
 }
 
 #submit-answer {
-    padding: 20px 20px;
+    padding: 1.25em 1.25em;  /* 20px to em */
     font-size: 1.2em;
     font-family: 'Bangers', cursive;
     background-color: #ff0000;  /* Green background */
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     color: rgb(0, 0, 0);  /* White text */
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125em;  /* 5px to em */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
@@ -257,16 +258,15 @@ h1 {
     transform: scale(1.10);
 }
 
-
 #end-quiz {
-    padding: 15px 15px;
+    padding: 0.9375em 0.9375em;  /* 15px to em */
     font-family: 'Bangers', cursive;
     background-color: #ff0000;  /* Green background */
-    box-shadow: 7px 7px 7px grey;  /* Increased shadow */
+    box-shadow: 0.4375em 0.4375em 0.4375em grey;  /* 7px to em */
     color: rgb(0, 0, 0);  /* White text */
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125em;  /* 5px to em */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    margin-left: 1200px;  /* Offset to the right */
+    margin-left: 100em;  /* Offset to the right */
 }
